@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutrexConnect.Domain", "FutrexConnect.Domain\FutrexConnect.Domain.csproj", "{C1884731-B037-434C-9936-B7F5E9270318}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{672AF0F0-5125-11EC-A173-F96C7F36346E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutrexConnect.Infrastructure", "FutrexConnect.Infrastructure\FutrexConnect.Infrastructure.csproj", "{24813726-A5E4-41DF-B62A-F20356513836}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FutrexConnect.WebUI", "FutrexConnect.WebUI", "{ECE4E140-5127-11EC-A173-F96C7F36346E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutrexConnect.Core", "FutrexConnect.Core\FutrexConnect.Core.csproj", "{67AE8C05-508A-4675-962A-73B84EC1F96C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1884731-B037-434C-9936-B7F5E9270318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1884731-B037-434C-9936-B7F5E9270318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1884731-B037-434C-9936-B7F5E9270318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1884731-B037-434C-9936-B7F5E9270318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24813726-A5E4-41DF-B62A-F20356513836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24813726-A5E4-41DF-B62A-F20356513836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24813726-A5E4-41DF-B62A-F20356513836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24813726-A5E4-41DF-B62A-F20356513836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AE8C05-508A-4675-962A-73B84EC1F96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AE8C05-508A-4675-962A-73B84EC1F96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AE8C05-508A-4675-962A-73B84EC1F96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AE8C05-508A-4675-962A-73B84EC1F96C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67AE8C05-508A-4675-962A-73B84EC1F96C} = {ECE4E140-5127-11EC-A173-F96C7F36346E}
+		{ECE4E140-5127-11EC-A173-F96C7F36346E} = {672AF0F0-5125-11EC-A173-F96C7F36346E}
+		{24813726-A5E4-41DF-B62A-F20356513836} = {672AF0F0-5125-11EC-A173-F96C7F36346E}
+		{C1884731-B037-434C-9936-B7F5E9270318} = {672AF0F0-5125-11EC-A173-F96C7F36346E}
+	EndGlobalSection
+EndGlobal

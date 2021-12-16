@@ -1,0 +1,17 @@
+<body>
+  <div class="wrapper">
+    <app-side-nav-menu></app-side-nav-menu>
+    <div class="main">
+      <app-header-nav-menu></app-header-nav-menu>
+      <main class="content content_background ml-3">
+        <div class="container-fluid p-0">
+            <app-breadcrumb></app-breadcrumb>
+            <app-title-header></app-title-header>            
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,42 @@
+.mat-table .mat-header-cell{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.mat-table .mat-header-cell.mat-header-text-center,
+.mat-table .mat-header-cell.mat-header-text-center .mat-sort-header-container {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.mat-table .mat-cell.mat-cell-text-center {
+  text-align: center;
+  justify-content: center;
+}
+
+.list-view .mat-table{
+  width: 100%;
+}
+
+
+.list-view .mat-form-field-appearance-standard .mat-form-field-flex {
+    padding-top: 0px;
+}
+
+.list-view button.mat-mini-fab {
+    width: 38px;
+    height: 38px;
+}
+
+.list-view .mat-mini-fab .mat-icon {
+    font-size: 19px;
+}
+
+.form-container .mat-form-field+.mat-form-field {
+  margin-left: 8px;
+}
+
+mat-panel-title {
+  font-weight: 500;
+}
