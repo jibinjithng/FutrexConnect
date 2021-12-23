@@ -18,6 +18,9 @@ namespace FutrexConnect.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             services.AddScoped<IRepository<Customer>, Repository<Customer>>();
+            services.AddScoped<IRepository<CustomerAddressDetails>, Repository<CustomerAddressDetails>>();
+            services.AddScoped<IRepository<CustomerContactDetails>, Repository<CustomerContactDetails>>();
+            services.AddScoped<IRepository<CustomerSupportingDocuments>, Repository<CustomerSupportingDocuments>>();
             return services;
         }
     }

@@ -36,7 +36,7 @@ public class CustomerController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Customer>> CreateCustomer(Customer customer)
+    public async Task<ActionResult<CustomerDAO>> CreateCustomer(CustomerDAO customer)
     {
         var newCustomer = await _customerService.CreateCustomer(customer);
 
@@ -49,12 +49,7 @@ public class CustomerController : ControllerBase
     [HttpPut]
     public async Task<ActionResult> UpdateCustomer(CustomerDAO customer)
     {
-        Customer customerToUpdate = new Customer
-        {
-            CustomerName = customer.CustomerName,
-            CustomerType = customer.CustomerType,
-        };
-        await _customerService.UpdateCustomer(customerToUpdate);
+        await _customerService.UpdateCustomer(customer);
         return NoContent();
     }
 

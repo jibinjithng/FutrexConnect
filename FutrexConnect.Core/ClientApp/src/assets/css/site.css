@@ -31263,3 +31263,16 @@ body {
     padding:2px;
     border-radius: 5px;
 }
+
+.form-element {
+  padding: 5px 0px 25px 2px;
+  width: 100%;
+}
+
+.button-section{
+    text-align: center;
+}
+
+.required-indicator{
+    color:red;
+}

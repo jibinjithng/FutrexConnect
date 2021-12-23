@@ -6,11 +6,11 @@ import { RouterReducerState } from '@ngrx/router-store';
 
 export interface IAppState {
   router?: RouterReducerState;
-  customers: ICustomerState;
+  customerState: ICustomerState;
 }
 
 export const initialAppState: IAppState = {
-  customers: initialCustomerState,
+  customerState: initialCustomerState,
 };
 
 export function getInitialState(): IAppState {

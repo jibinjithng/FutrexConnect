@@ -43,6 +43,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<City> Cities { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<Currency> Currencies { get; set; }
+    public DbSet<Customer> Customers { get; set; }
     public DbSet<CustomerAddressDetails> CustomerAddressDetails { get; set; }
     public DbSet<CustomerContactDetails> CustomerContactDetails { get; set; }
     public DbSet<CustomerSupportingDocuments> CustomerSupportingDocuments { get; set; }

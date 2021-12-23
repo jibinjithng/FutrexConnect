@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center">    
-    <button mat-mini-fab color="primary" class="m-1" aria-label="edit row">
+    <button mat-mini-fab color="primary" (click)="editRow()" class="m-1" aria-label="edit row">
         <mat-icon>edit</mat-icon>
     </button>
-    <button mat-mini-fab color="warn" class="m-1" aria-label="delete row">
+    <button mat-mini-fab color="warn" (click)="deleteRow()"  class="m-1" aria-label="delete row">
         <mat-icon>delete</mat-icon>
     </button>
 </div>

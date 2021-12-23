@@ -9,9 +9,9 @@ namespace FutrexConnect.Domain.Interfaces
 
         Task<CustomerDAO> GetCustomerByID(long customerID);
 
-        Task<Customer> CreateCustomer(Customer customer);
+        Task<CustomerDAO> CreateCustomer(CustomerDAO customer);
 
-        Task<Customer> UpdateCustomer(Customer customer);
+        Task<CustomerDAO> UpdateCustomer(CustomerDAO customer);
 
         Task<Boolean> DeleteCustomer(long customerID);
     }

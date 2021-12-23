@@ -2,14 +2,30 @@ import { createSelector } from '@ngrx/store';
 import { IAppState } from '../app.state';
 import { ICustomerState } from './customer.state';
 
-const selectCustomers = (state: IAppState) => state.customers;
+const customerState = (state: IAppState) => state.customerState;
 
 export const selectCustomerList = createSelector(
-  selectCustomers,
+  customerState,
   (state: ICustomerState) => state.customers
 );
 
-export const selectSelectedUser = createSelector(
-  selectCustomers,
-  (state: ICustomerState) => state.selectedCustomer
+export const selectCustomer = createSelector(
+  customerState,
+  (state: ICustomerState) => {
+    return state.selectedCustomer;
+  }
+);
+
+export const selectError = createSelector(
+  customerState,
+  (state: ICustomerState) => {
+    return state.error;
+  }
+);
+
+export const selectLoading = createSelector(
+  customerState,
+  (state: ICustomerState) => {
+    return state.loading;
+  }
 );

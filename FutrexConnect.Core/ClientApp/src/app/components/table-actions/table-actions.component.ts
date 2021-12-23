@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table-actions',
   templateUrl: './table-actions.component.html',
-  styleUrls: ['./table-actions.component.css']
+  styleUrls: ['./table-actions.component.css'],
 })
 export class TableActionsComponent implements OnInit {
+  @Output('onEdit')
+  editEventEmitter: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  @Output('onDelete')
+  deleteEventEmitter: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit(): void {
+  @Input()
+  rowId: number;
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  editRow() {
+    this.editEventEmitter.emit(this.rowId);
   }
-
+  deleteRow() {
+    this.deleteEventEmitter.emit(this.rowId);
+  }
 }

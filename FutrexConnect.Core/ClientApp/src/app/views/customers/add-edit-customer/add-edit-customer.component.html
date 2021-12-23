@@ -1,97 +1,118 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading$"></mat-progress-bar>
 <div class="form-container">
-    <div class="card">
-        <div class="card-body">
-            <form>
-                <mat-form-field appearance="fill">
-                    <mat-label>Customer Name</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Customer Type</mat-label>
-                        <mat-select>
-                            <mat-option value="one">Individual User</mat-option>
-                            <mat-option value="two">Organization</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Website</mat-label>
-                    <input matInput>
-                </mat-form-field>
-            </form>  
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+        <div class="card">
+            <div class="card-body">   
+                <mat-grid-list cols="3" rowHeight="50px" gutterSize="10px">
+                    <mat-grid-tile>
+                         <mat-form-field appearance="fill">
+                            <mat-label>Customer Name <span class="required-indicator">*</span></mat-label>
+                            <input matInput formControlName="customerName">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Customer Type <span class="required-indicator">*</span></mat-label>
+                            <mat-select formControlName="customerType">
+                                <mat-option value="IndividualUser">Individual User</mat-option>
+                                <mat-option value="Organization">Organization</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill" >
+                            <mat-label>Website</mat-label>
+                            <input matInput formControlName="website">
+                        </mat-form-field>   
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </div>      
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Contact Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-grid-list cols="3" rowHeight="50px" gutterSize="10px">
+                    <mat-grid-tile>
+                         <mat-form-field appearance="fill">
+                            <mat-label>Email <span class="required-indicator">*</span></mat-label>
+                            <input matInput formControlName="email">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Mobile Phone <span class="required-indicator">*</span></mat-label>
+                            <input matInput formControlName="mobilePhone">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Office Phone <span class="required-indicator">*</span></mat-label>
+                            <input matInput formControlName="officePhone">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>       
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Address Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-grid-list cols="2" rowHeight="50px" gutterSize="10px">
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill" flex="50">
+                            <mat-label>Address Line 1 <span class="required-indicator">*</span></mat-label>
+                            <input matInput formControlName="address1">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                         <mat-form-field appearance="fill">
+                            <mat-label>Address Line 2</mat-label>
+                            <input matInput formControlName="address2">
+                        </mat-form-field>
+                    </mat-grid-tile>                    
+                </mat-grid-list>
+                <mat-grid-list cols="4" rowHeight="50px" gutterSize="10px">
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">                         
+                            <mat-label>Country <span class="required-indicator">*</span></mat-label>                        
+                            <mat-select formControlName="countryId">
+                                <mat-option *ngFor="let country of countries" [value]="country.id">{{country.countryName}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">
+                            <mat-label>State <span class="required-indicator">*</span></mat-label>
+                            <mat-select formControlName="stateId">
+                                <mat-option *ngFor="let state of states" [value]="state.id">{{state.stateName}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">
+                            <mat-label>city <span class="required-indicator">*</span></mat-label>
+                            <mat-select formControlName="cityId">
+                                <mat-option *ngFor="let city of cities" [value]="city.id">{{city.cityName}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>     
+                     <mat-grid-tile>
+                         <mat-form-field appearance="fill">
+                            <mat-label>Pincode <span class="required-indicator">*</span></mat-label>
+                            <input matInput formControlName="pincode">
+                        </mat-form-field>
+                    </mat-grid-tile>                   
+                </mat-grid-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <div class="button-section mt-3">
+            <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit</button>
+            <button mat-raised-button type="button" class="btn m-3" (click)="cancel()">Cancel</button>
         </div>
-    </div>      
+    </form>  
 </div>
-<mat-accordion>  
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Contact Details
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <form>
-        <mat-form-field appearance="fill">
-            <mat-label>Mobile Phone</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Customer Type</mat-label>
-                <mat-select>
-                    <mat-option value="one">Individual User</mat-option>
-                    <mat-option value="two">Organization</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Website</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </form>  
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Address Details
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <form>
-        <mat-form-field appearance="fill">
-            <mat-label>Customer Name</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Customer Type</mat-label>
-                <mat-select>
-                    <mat-option value="one">Individual User</mat-option>
-                    <mat-option value="two">Organization</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Website</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </form>  
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Supporting Documents
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-   <form>
-        <mat-form-field appearance="fill">
-            <mat-label>Customer Name</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Customer Type</mat-label>
-                <mat-select>
-                    <mat-option value="one">Individual User</mat-option>
-                    <mat-option value="two">Organization</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Website</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </form>  
-  </mat-expansion-panel>
-</mat-accordion>

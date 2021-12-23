@@ -6,35 +6,85 @@ import {
   GetCustomersSuccess,
   GetCustomerSuccess,
   GetCustomers,
+  AddNewCustomer,
+  AddNewCustomerSuccess,
+  EditCustomer,
+  EditCustomerSuccess,
+  DeleteCustomer,
+  DeleteCustomerSuccess,
 } from './customer.actions';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { select } from '@ngrx/core';
-import { switchMap, map, withLatestFrom } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { IAppState } from '../app.state';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { selectCustomerList } from './customer.selectors';
 
 @Injectable()
 export class CustomerEffects {
-  //   @Effect()
-  //   getUser$ = this._actions$.pipe(
-  //     ofType<GetCustomer>(ECustomerActions.GetCustomer),
-  //     map((action: any) => action.payload),
-  //     withLatestFrom(this._store.pipe(select(selectCustomerList))),
-  //     switchMap((id: any, customers: any) => {
-  //       const selectedUser = customers.filter((user) => user.id === +id)[0];
-  //       return of(new GetCustomersSuccess(selectedUser));
-  //     })
-  //   );
-
   @Effect()
   getCustomers$ = this._actions$.pipe(
     ofType<GetCustomers>(ECustomerActions.GetCustomers),
     map((action: any) => action.payload),
     switchMap(() => this._customerService.getCustomers()),
-    switchMap((customers: ICustomer[]) => of(new GetCustomerSuccess(customers)))
+    switchMap((customers: ICustomer[]) =>
+      of(new GetCustomersSuccess(customers))
+    )
+  );
+
+  @Effect()
+  getCustomer$ = this._actions$.pipe(
+    ofType<GetCustomer>(ECustomerActions.GetCustomer),
+    map((action: any) => action.payload),
+    switchMap((customerId: Number) =>
+      this._customerService.getCustomerById(customerId)
+    ),
+    switchMap((customer: ICustomer) => of(new GetCustomerSuccess(customer)))
+  );
+
+  @Effect()
+  addNewCustomer$ = this._actions$.pipe(
+    ofType<AddNewCustomer>(ECustomerActions.AddNewCustomer),
+    map((action: any) => action.payload),
+    switchMap((customer: ICustomer) =>
+      this._customerService
+        .addNewCustomer(customer)
+        .pipe(
+          switchMap((customer: ICustomer) =>
+            of(new AddNewCustomerSuccess(customer))
+          )
+        )
+    )
+  );
+
+  @Effect()
+  editCustomer$ = this._actions$.pipe(
+    ofType<EditCustomer>(ECustomerActions.EditCustomer),
+    map((action: any) => action.payload),
+    switchMap((customer: ICustomer) =>
+      this._customerService
+        .editCustomer(customer)
+        .pipe(
+          switchMap((customer: ICustomer) =>
+            of(new EditCustomerSuccess(customer))
+          )
+        )
+    )
+  );
+
+  @Effect()
+  deleteCustomer$ = this._actions$.pipe(
+    ofType<DeleteCustomer>(ECustomerActions.DeleteCustomer),
+    map((action: any) => action.payload),
+    switchMap((customerId: Number) =>
+      this._customerService
+        .deleteCustomer(customerId)
+        .pipe(
+          switchMap((response: Boolean) =>
+            of(new DeleteCustomerSuccess(response))
+          )
+        )
+    )
   );
 
   constructor(

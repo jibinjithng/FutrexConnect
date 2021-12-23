@@ -19,6 +19,10 @@ namespace FutrexConnect.Infrastructure.Persistence
         {
             return await entities.ToListAsync();
         }
+        public IQueryable<T> GetAll()
+        {
+            return entities.AsQueryable();
+        }
         public async Task<T> GetAsync(long id)
         {
             return await entities.SingleOrDefaultAsync(s => s.Id == id);
@@ -45,7 +49,7 @@ namespace FutrexConnect.Infrastructure.Persistence
             await context.SaveChangesAsync();
             return entity;
         }
-        public async void DeleteAsync(T entity)
+        public async Task DeleteAsync(T entity)
         {
             if (entity == null)
             {

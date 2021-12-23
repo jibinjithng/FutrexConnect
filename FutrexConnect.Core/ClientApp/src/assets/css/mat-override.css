@@ -40,3 +40,11 @@
 mat-panel-title {
   font-weight: 500;
 }
+
+.mat-form-field{
+  width:100%;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: #fff;
+}

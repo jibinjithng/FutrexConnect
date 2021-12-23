@@ -4,7 +4,7 @@ import { environment } from './../environments/environment.prod';
 import { appReducers } from './state/app.reducers';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -31,12 +31,17 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { StatusIndicatorComponent } from './components/status-indicator/status-indicator.component';
 import { TableActionsComponent } from './components/table-actions/table-actions.component';
 import { AddEditCustomerComponent } from './views/customers/add-edit-customer/add-edit-customer.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +55,7 @@ import { MatSelectModule } from '@angular/material/select';
     StatusIndicatorComponent,
     TableActionsComponent,
     AddEditCustomerComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -60,6 +66,7 @@ import { MatSelectModule } from '@angular/material/select';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     DataTablesModule,
     MatTableModule,
@@ -72,6 +79,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatOptionModule,
     MatSelectModule,
     MatExpansionModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent],
