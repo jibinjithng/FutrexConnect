@@ -29,6 +29,7 @@ namespace FutrexConnect.Core.Services
         public async Task<IEnumerable<CustomerDAO>> GetAllCustomers()
         {
             var customers = await _customerRepository.GetAllAsync();
+            System.Threading.Thread.Sleep(2000);
             return _mapper.Map<IEnumerable<CustomerDAO>>(customers);
         }
 

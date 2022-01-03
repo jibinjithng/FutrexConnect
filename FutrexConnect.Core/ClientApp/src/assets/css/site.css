@@ -11,7 +11,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
+@import "~bootstrap/dist/css/bootstrap.min.css";
 :root {
     --bs-blue: var(--bs-primary);
     --bs-indigo: #0a0a0a;
@@ -5367,15 +5367,16 @@ fieldset:disabled .btn {
     padding-left: .5rem
 }
 
-    .breadcrumb-item + .breadcrumb-item:before {
-        color: #6c757d;
-        content: var(--bs-breadcrumb-divider, "/");
-        float: left;
-        padding-right: .5rem
-    }
+.breadcrumb-item + .breadcrumb-item:before {
+    color: #6c757d;
+    content: var(--bs-breadcrumb-divider, "/");
+    float: left;
+    padding-right: .5rem
+}
 
 .breadcrumb-item.active {
-    color: #6c757d
+    font-weight: bold;
+    color: var(--bs-primary);
 }
 
 .pagination {
@@ -16077,7 +16078,7 @@ body[data-theme=colored] .sidebar-content {
 a.sidebar-link {
     background: #222e3c;
     border-left: 3px solid transparent;
-    color: rgba(233, 236, 239, .5);
+    color: rgba(233, 236, 239, .5) !important;
     cursor: pointer;
     display: block;
     font-weight: 400;

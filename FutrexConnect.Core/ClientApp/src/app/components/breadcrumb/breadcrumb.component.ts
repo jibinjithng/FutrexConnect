@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IBreadcrumbData } from '../../models/navigation-models';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./breadcrumb.component.css'],
 })
 export class BreadcrumbComponent implements OnInit {
+  @Input()
+  breadcrumbData: IBreadcrumbData[];
+
   constructor() {}
 
   ngOnInit(): void {}

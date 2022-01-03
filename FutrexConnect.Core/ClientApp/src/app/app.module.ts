@@ -18,10 +18,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ListCustomersComponent } from './views/customers/list-customers/list.customers.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SideNavMenuComponent } from './side-nav-menu/side-nav-menu.component';
-import { HeaderNavMenuComponent } from './header-nav-menu/header-nav-menu.component';
-import { TitleHeaderComponent } from './title-header/title-header.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { SideNavMenuComponent } from './components/side-nav-menu/side-nav-menu.component';
+import { HeaderNavMenuComponent } from './components/header-nav-menu/header-nav-menu.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { DataTablesModule } from 'angular-datatables';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,7 +49,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
     ListCustomersComponent,
     SideNavMenuComponent,
     HeaderNavMenuComponent,
-    TitleHeaderComponent,
     BreadcrumbComponent,
     StatusIndicatorComponent,
     TableActionsComponent,

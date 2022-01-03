@@ -4,18 +4,40 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListCustomersComponent } from './views/customers/list-customers/list.customers.component';
 
 const routes: Routes = [
-  { path: '', component: ListCustomersComponent, pathMatch: 'full' },
   {
-    path: 'add-edit-customer/:id',
-    component: AddEditCustomerComponent,
+    path: '',
+    redirectTo: '/settings/customers',
     pathMatch: 'full',
+    data: { title: 'Settings' },
   },
   {
-    path: 'add-edit-customer',
-    component: AddEditCustomerComponent,
-    pathMatch: 'full',
+    path: 'settings/customers',
+    data: {
+      parent: {
+        title: 'Settings',
+        iconUrl: '../../assets/icons/Settings2.svg',
+      },
+      title: 'Customers',
+    },
+    children: [
+      {
+        path: '',
+        component: ListCustomersComponent,
+        pathMatch: 'full',
+        data: { title: 'All Customers', parent: null },
+      },
+      {
+        path: 'add-edit-customer',
+        component: AddEditCustomerComponent,
+        data: { title: 'Add New Customer', parent: null },
+      },
+      {
+        path: 'add-edit-customer/:id',
+        component: AddEditCustomerComponent,
+        data: { title: 'Edit Customer', parent: null },
+      },
+    ],
   },
-  { path: 'customers', component: ListCustomersComponent },
 ];
 
 @NgModule({

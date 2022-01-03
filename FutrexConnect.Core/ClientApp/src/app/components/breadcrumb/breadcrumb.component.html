@@ -1,0 +1,10 @@
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent p-0 mt-1 mb-3">        
+        <li class="breadcrumb-item {{breadcrumb.isActive ? 'active' : ''}}"  *ngFor="let breadcrumb of breadcrumbData">
+            <a class="float-left mr-1" *ngIf="breadcrumb.iconUrl !== ''"><img [src]="breadcrumb.iconUrl"></a>
+            <a *ngIf="!breadcrumb.isActive" [href]="breadcrumb.url">{{breadcrumb.title}}</a>
+            <span *ngIf="breadcrumb.isActive">{{breadcrumb.title}}</span>                
+        </li>
+    </ol>
+</nav>

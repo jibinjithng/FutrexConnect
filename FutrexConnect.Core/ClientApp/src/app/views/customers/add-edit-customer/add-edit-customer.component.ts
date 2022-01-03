@@ -168,7 +168,7 @@ export class AddEditCustomerComponent implements OnInit {
   }
 
   cancel() {
-    this._router.navigate(['/customers/']);
+    this._router.navigate(['/settings/customers/']);
   }
 
   submitForm() {
@@ -230,7 +230,7 @@ export class AddEditCustomerComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this._router.navigate(['/customers']);
+      this._router.navigate(['/settings/customers']);
     });
   }
 }

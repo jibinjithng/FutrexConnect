@@ -5,8 +5,7 @@
       <app-header-nav-menu></app-header-nav-menu>
       <main class="content content_background ml-3">
         <div class="container-fluid p-0">
-            <app-breadcrumb></app-breadcrumb>
-            <app-title-header></app-title-header>            
+            <app-breadcrumb [breadcrumbData]="pageNavigationData.breadcrumbs"></app-breadcrumb>
         </div>
         <div>
             <router-outlet></router-outlet>

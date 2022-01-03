@@ -1,12 +1,11 @@
 import { DeleteCustomer } from './../../../state/customer/customer.actions';
-import { ICustomer } from '../../../models/customer';
 import {
   selectCustomerList,
   selectError,
   selectLoading,
 } from '../../../state/customer/customer.selectors';
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { IAppState } from '../../../state/app.state';
 import { GetCustomers } from '../../../state/customer/customer.actions';
@@ -19,7 +18,7 @@ import { IDialogData } from 'src/app/models/dialogData';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { DialogTypes } from 'src/app/models/enums/dialogTypes';
-import { takeWhile } from 'rxjs/operators';
+import { take, takeWhile } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -45,6 +44,7 @@ export class ListCustomersComponent {
   constructor(
     private _store: Store<IAppState>,
     private _router: Router,
+    private _route: ActivatedRoute,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
   ) {
@@ -80,9 +80,9 @@ export class ListCustomersComponent {
   addEditCustomer(customerId) {
     const path =
       customerId === 0
-        ? '/add-edit-customer/'
-        : '/add-edit-customer/' + customerId;
-    this._router.navigate([path]);
+        ? 'add-edit-customer'
+        : 'add-edit-customer/' + customerId;
+    this._router.navigate([path], { relativeTo: this._route });
   }
 
   confirmDeleteCustomer(customerId) {
